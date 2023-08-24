@@ -6,8 +6,8 @@ public class ToDoItemDto implements Serializable {
 
     public static final Long serialVersionUID = 1L;
 
-    private Long todoId;
     private String title;
+    private String content;
     private boolean completed;
 
 }

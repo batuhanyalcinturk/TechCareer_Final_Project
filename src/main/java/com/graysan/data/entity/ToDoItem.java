@@ -1,16 +1,21 @@
 package com.graysan.data.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 
 @Data
 @Log4j2
-@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "todo_item")
 public class ToDoItem implements Serializable {
@@ -23,6 +28,21 @@ public class ToDoItem implements Serializable {
     private Long todoId;
 
     private String title;
+    private String content;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDate date;
     private boolean completed;
+
+    @Override
+    public String toString() {
+        return "ToDoItem{" +
+                "id=" + todoId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", date='" + date + '\'' +
+                ", completed=" + completed +
+                '}';
+    }
 
 }
