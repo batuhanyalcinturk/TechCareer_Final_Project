@@ -1,5 +1,6 @@
 package com.graysan.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -10,8 +11,7 @@ import java.time.LocalDate;
 
 
 //@Data
-@Getter
-@Setter
+@Data
 @Log4j2
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +29,11 @@ public class ToDoItem implements Serializable {
     private String title;
     private String content;
     private boolean completed = Boolean.FALSE;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id", nullable=false)
+    @JsonIgnore
+    User user;
 
     @Override
     public String toString() {
