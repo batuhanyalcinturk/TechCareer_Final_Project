@@ -58,6 +58,11 @@ public class ToDoService {
         toDoItemRepository.deleteById(id);
     }
 
+    public String categoryServiceAllDelete() {
+        toDoItemRepository.deleteAll();
+        return "Silinen veri sayısı : " + getAllTodos().size();
+    }
+
 
 
     private ToDoItemDto convertToDTO(ToDoItem todo) {

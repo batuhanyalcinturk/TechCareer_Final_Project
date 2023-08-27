@@ -21,13 +21,13 @@ public class ToDoItemController {
         this.toDoService = toDoService;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<ToDoItemDto>> getAllTodos() {
         List<ToDoItemDto> todos = toDoService.getAllTodos();
         return new ResponseEntity<>(todos, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/list/{id}")
     public ResponseEntity<ToDoItemDto> getTodoById(@PathVariable Long id) {
         ToDoItemDto todo = toDoService.getTodoById(id);
         if (todo != null) {
@@ -37,13 +37,13 @@ public class ToDoItemController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<ToDoItemDto> createTodo(@RequestBody ToDoItemDto todoDTO) {
         ToDoItemDto createdTodo = toDoService.createTodo(todoDTO);
         return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<ToDoItemDto> updateTodo(@PathVariable Long id, @RequestBody ToDoItemDto todoDTO) {
         ToDoItemDto updatedTodo = toDoService.updateTodo(id, todoDTO);
         if (updatedTodo != null) {
@@ -53,9 +53,14 @@ public class ToDoItemController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @PutMapping("/delete/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable Long id) {
         toDoService.deleteTodo(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping(value = "/all/delete")
+    public ResponseEntity<String> categoryApiAllDelete() {
+        return ResponseEntity.ok(toDoService.categoryServiceAllDelete());
     }
 }
