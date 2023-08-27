@@ -1,4 +1,4 @@
-package com.graysan;
+package com.graysan.controller;
 
 import com.graysan.assist.FrontEnd;
 import com.graysan.business.dto.ToDoItemDto;

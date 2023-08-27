@@ -29,9 +29,6 @@ public class ToDoItem implements Serializable {
 
     private String title;
     private String content;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDate date;
     private boolean completed;
 
     @Override
@@ -40,7 +37,6 @@ public class ToDoItem implements Serializable {
                 "id=" + todoId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", date='" + date + '\'' +
                 ", completed=" + completed +
                 '}';
     }
