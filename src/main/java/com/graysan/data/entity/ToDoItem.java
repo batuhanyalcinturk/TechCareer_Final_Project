@@ -1,10 +1,7 @@
 package com.graysan.data.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -12,7 +9,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 
-@Data
+//@Data
+@Getter
+@Setter
 @Log4j2
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,7 +28,7 @@ public class ToDoItem implements Serializable {
 
     private String title;
     private String content;
-    private boolean completed;
+    private boolean completed = Boolean.FALSE;
 
     @Override
     public String toString() {

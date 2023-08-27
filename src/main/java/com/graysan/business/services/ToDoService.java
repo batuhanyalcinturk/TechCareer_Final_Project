@@ -63,6 +63,14 @@ public class ToDoService {
         return "Silinen veri sayısı : " + getAllTodos().size();
     }
 
+    public List<ToDoItem> getCompletedTodos(boolean completed){
+        return toDoItemRepository.findAllByCompleted(completed);
+
+    }
+    public int countAllByCompleted(boolean completed) {
+        return toDoItemRepository.countAllByCompleted(completed);
+    }
+
 
 
     private ToDoItemDto convertToDTO(ToDoItem todo) {
