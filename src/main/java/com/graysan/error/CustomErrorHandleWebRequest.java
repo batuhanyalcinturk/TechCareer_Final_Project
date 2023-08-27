@@ -32,23 +32,6 @@ public class CustomErrorHandleWebRequest implements ErrorController {
     private int status;
     private Map<String, String> validationErrors;
 
-
-    /*
-    1.YOL (Field Injection)
-    @Autowired
-    private ErrorAttributes errorAttributes;
-    */
-
-    /*
-    2.YOL (Constructor Injection)
-    private final ErrorAttributes errorAttributes;
-    @Autowired
-    public CustomErrorHandleWebRequest(ErrorAttributes errorAttributes) {
-        this.errorAttributes = errorAttributes;
-    }
-    */
-
-    // 3. YOL (Constructor Lombok Injection)
     private final ErrorAttributes errorAttributes;
 
 
