@@ -25,19 +25,20 @@ public class TechcareerFinalProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		User user = new User();
-		user.setUserId(1L);
+		user.setId(1L);
 		user.setUserName("batu");
 		user.setPassword("sifre");
 
 		ToDoItem toDoItem = new ToDoItem();
-		toDoItem.setTodoId(1L);
+		toDoItem.setId(1L);
 		toDoItem.setTitle("Baslik");
 		toDoItem.setContent("Icerik");
-		//toDoItem.setCompleted(true);
+		toDoItem.setCompleted(true);
+		toDoItem.setUserId(user);
 
 		user.getTodoItems().add(toDoItem);
-		toDoItemRepository.save(toDoItem);
 		userRepository.save(user);
+		toDoItemRepository.save(toDoItem);
 	}
 }
 

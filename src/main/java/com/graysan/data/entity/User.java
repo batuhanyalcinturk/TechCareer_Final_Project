@@ -14,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "user_id",nullable=false)
+    private Long id;
 
     private String userName;
     private String password;
@@ -28,5 +28,13 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL)
     private List<ToDoItem> todoItems = new ArrayList<>();
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", todoItems=" + todoItems +
+                '}';
+    }
 }

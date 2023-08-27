@@ -24,24 +24,25 @@ public class ToDoItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "todo_id", unique = true, nullable = false, insertable = true, updatable = false)
-    private Long todoId;
+    private Long id;
 
     private String title;
     private String content;
     private boolean completed = Boolean.FALSE;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name="user_id")
     @JsonIgnore
-    User user;
+    User userId;
 
     @Override
     public String toString() {
         return "ToDoItem{" +
-                "id=" + todoId +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", completed=" + completed +
+                ", user_id=" + userId +
                 '}';
     }
 
