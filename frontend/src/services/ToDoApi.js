@@ -11,11 +11,7 @@ class ToDoApi {
 
     //@GetMapping("/list/{id}")
     getTodoById(id) {
-        if (todo != null) {
-            return new ResponseEntity<>(todo, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return axios.get(`${TODO_URL}/list/${id}`);
     }
 
     //@PostMapping("/create")
@@ -28,14 +24,8 @@ class ToDoApi {
         return axios.put(`${TODO_URL}/update/${id}`, todoDTO);
     }
 
-    @PutMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteTodo(@PathVariable Long id) {
-        toDoService.deleteTodo(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping(value = "/all/delete")
-    public ResponseEntity<String> categoryApiAllDelete() {
-        return ResponseEntity.ok(toDoService.categoryServiceAllDelete());
+    //@PutMapping("/delete/{id}")
+    deleteTodo(id) {
+        return axios.put(`${TODO_URL}/delete/${id}`)
     }
 }
