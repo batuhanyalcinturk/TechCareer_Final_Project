@@ -60,7 +60,7 @@ public class ToDoItemController {
     }
 
     @GetMapping(value = "/all/delete")
-    public ResponseEntity<String> categoryApiAllDelete() {
-        return ResponseEntity.ok(toDoService.categoryServiceAllDelete());
+    public ResponseEntity<String> todoApiAllDelete() {
+        return ResponseEntity.ok(toDoService.toDoServiceAllDelete());
     }
 }
