@@ -7,8 +7,8 @@ import java.io.Serializable;
 @Data
 public class ToDoItemDto {
 
+    private Long id;
     private String title;
-    private String content;
     private boolean completed;
 
 }

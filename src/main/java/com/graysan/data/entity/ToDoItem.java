@@ -27,22 +27,21 @@ public class ToDoItem implements Serializable {
     private Long id;
 
     private String title;
-    private String content;
     private boolean completed = Boolean.FALSE;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     @JsonIgnore
-    User userId;
+    User userId;*/
 
     @Override
     public String toString() {
         return "ToDoItem{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                //", content='" + content + '\'' +
                 ", completed=" + completed +
-                ", user_id=" + userId +
+                //", user_id=" + userId +
                 '}';
     }
 

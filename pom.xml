@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 
 		<swagger.version>2.0.0</swagger.version>
+		<modelmapper.version>2.4.4</modelmapper.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +47,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper.version}</version>
 		</dependency>
 
 		<dependency>

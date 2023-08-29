@@ -9,7 +9,7 @@ import { withTranslation } from 'react-i18next';
 class Header extends Component {
 
     // Component görünen ismi
-    static displayName = "Blog_Header";
+    static displayName = "Todo_Header";
 
     // Constructor
     constructor(props) {

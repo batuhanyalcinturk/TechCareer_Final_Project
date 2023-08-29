@@ -14,10 +14,10 @@ import Header from './component/Header';
 import Main from './component/Main';
 
 // CATEGORY
-import TodoList from './component/todo/TodoList';
-import TodoCreate from './component/todo/TodoCreate';
-import TodoView from './component/todo/TodoView';
-import TodoUpdate from './component/todo/TodoUpdate';
+import TodoList from './component/todos/TodoList';
+import TodoCreate from './component/todos/TodoCreate';
+import TodoView from './component/todos/TodoView';
+import TodoUpdate from './component/todos/TodoUpdate';
 
 
 // CLASS COMPONENT
@@ -52,11 +52,11 @@ class TodoRouter extends Component {
                     <Routes>
                         <Route path='/' element={<Main />} />
 
-                        {/* Todo category */}
-                        <Route path='/todo/list' element={<TodoList/>} />
-                        <Route path='/todo/create' element={<TodoCreate/>} />
-                        <Route path='/todo/view/:id' element={<TodoView/>} />
-                        <Route path='/todo/update/:id' element={<TodoUpdate/>} />
+                        {/* Todo */}
+                        <Route path='/todos/list' element={<TodoList/>} />
+                        <Route path='/todos/create' element={<TodoCreate/>} />
+                        <Route path='/todos/view/:id' element={<TodoView/>} />
+                        <Route path='/todos/update/:id' element={<TodoUpdate/>} />
                         {/* bad request */}
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
