@@ -27,7 +27,7 @@ public class TechcareerFinalProjectApplication implements CommandLineRunner {
 		user.setUserName("batu");
 		user.setPassword("sifre");*/
 
-		ToDoItem toDoItem = new ToDoItem();
+		/*ToDoItem toDoItem = new ToDoItem();
 		toDoItem.setId(1L);
 		toDoItem.setTitle("Baslik");
 		toDoItem.setCompleted(true);
@@ -35,7 +35,7 @@ public class TechcareerFinalProjectApplication implements CommandLineRunner {
 
 		//user.getTodoItems().add(toDoItem);
 		//userRepository.save(user);
-		toDoItemRepository.save(toDoItem);
+		toDoItemRepository.save(toDoItem);*/
 	}
 }
 

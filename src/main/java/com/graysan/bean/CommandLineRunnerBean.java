@@ -64,10 +64,9 @@ public class CommandLineRunnerBean {
             ToDoItem todoEntity = new ToDoItem();
             todoEntity.setTitle("title data");
             todoEntity.setCompleted(true);
-            todoEntity.(listCategoryEntityList.get(categoryNumber));
             toDoItemRepository.save(todoEntity);
         } else {
-            throw new TodoNotFoundException("Category Listesi yoktur");
+            throw new TodoNotFoundException("Todo Listesi yoktur");
         }
     }
 
@@ -76,8 +75,8 @@ public class CommandLineRunnerBean {
         return args -> {
             System.out.println("CommandLineRunner Çalıştı");
 
-            randomCategory();
-            blogCreate(0);
+            randomTodo();
+            todoCreate(0);
         };
     }
 }
