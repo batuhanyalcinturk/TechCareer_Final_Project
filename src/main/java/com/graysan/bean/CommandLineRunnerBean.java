@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 
@@ -36,11 +35,11 @@ public class CommandLineRunnerBean {
     // Random Todos
     public String[] randomTodo() {
         String[] randomData = new String[5];
-        randomData[0] = "yemek ye " + UUID.randomUUID().toString();
-        randomData[1] = "su ic "+ UUID.randomUUID().toString();
-        randomData[2] = "pc yi ac "+ UUID.randomUUID().toString();
-        randomData[3] = "arabayi yika "+ UUID.randomUUID().toString();
-        randomData[4] = "markete git "+ UUID.randomUUID().toString();
+        randomData[0] = "Yemek ye ";
+        randomData[1] = "Su iç ";
+        randomData[2] = "Ödevlerini yap ";
+        randomData[3] = "Arabayı yıka ";
+        randomData[4] = "Marketten alınacakları al ";
         // döngüde rastgele bir tane todos seçecek
         for (int i = 0; i < 5; i++) {
             toDoItemEntitySave(randomData[i]);
@@ -52,14 +51,14 @@ public class CommandLineRunnerBean {
         return randomData;
     }
 
-    // Blog Create
+    // Todo Create
     public void todoCreate(Integer todoNumber) {
         Iterable<ToDoItem> iterableTodoList = toDoItemRepository.findAll();
         List<ToDoItem> listTodoList = new ArrayList<>();
         // Iterable'dan Liste çevirdim
         iterableTodoList.forEach(listTodoList::add);
 
-        // category varsa ekleme yapsın
+        // todo varsa ekleme yapsın
         if (listTodoList != null) {
             ToDoItem todoEntity = new ToDoItem();
             todoEntity.setTitle("title data");
@@ -71,7 +70,7 @@ public class CommandLineRunnerBean {
     }
 
     @Bean
-    public CommandLineRunner blogCommandLineRunnerMethod() {
+    public CommandLineRunner todoCommandLineRunnerMethod() {
         return args -> {
             System.out.println("CommandLineRunner Çalıştı");
 

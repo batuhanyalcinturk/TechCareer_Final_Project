@@ -16,10 +16,10 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .description("blog tanımlama")
+                                .description("Todo App")
                                 .version("v1")
                                 .contact(new Contact().email("batuhanyalcinturk@gmail.com").url("url"))
-                                .title("TitleBatu")
+                                .title("Todo App - Graysan")
                                 .termsOfService("Graysan INC")
                                 .license(new License().url("https://www.xxx.com").name("name")));
     }

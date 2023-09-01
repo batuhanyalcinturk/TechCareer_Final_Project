@@ -3,6 +3,8 @@ package com.graysan.controller;
 import com.graysan.assist.FrontEnd;
 import com.graysan.business.dto.ToDoItemDto;
 import com.graysan.business.services.ToDoService;
+import com.graysan.data.entity.ToDoItem;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,10 +39,15 @@ public class ToDoItemController {
         }
     }
 
+    @GetMapping("/list/completed")
+    public ResponseEntity<List<ToDoItem>> getCompletedTodos() {
+        List<ToDoItem> todos = toDoService.getCompletedTodos(true);
+        return new ResponseEntity<>(todos, HttpStatus.OK);
+    }
+
     @PostMapping("/create")
-    public ResponseEntity<ToDoItemDto> createTodo(@RequestBody ToDoItemDto todoDTO) {
-        ToDoItemDto createdTodo = toDoService.createTodo(todoDTO);
-        return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
+    public ResponseEntity<ToDoItemDto> createTodo(@Valid @RequestBody ToDoItemDto todoDTO) {
+        return ResponseEntity.ok(toDoService.createTodo(todoDTO));
     }
 
     @PutMapping("/update/{id}")
@@ -62,5 +69,14 @@ public class ToDoItemController {
     @GetMapping(value = "/all/delete")
     public ResponseEntity<String> todoApiAllDelete() {
         return ResponseEntity.ok(toDoService.toDoServiceAllDelete());
+    }
+
+    @DeleteMapping("/completed")
+    public String deleteCompleted() {
+        List<ToDoItem> completedItems = toDoService.getCompletedTodos(true);
+        for (ToDoItem item : completedItems) {
+            toDoService.deleteTodo(item.getId());
+        }
+        return "redirect:/todo";
     }
 }

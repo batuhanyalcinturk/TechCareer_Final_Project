@@ -2,7 +2,7 @@ import axios from "axios";
 
 const TODO_URL = "/v1/api/todos"
 
-class ToDoApi {
+class TodoApi {
 
     //@GetMapping("/list")
     getAllTodos() {
@@ -29,3 +29,5 @@ class ToDoApi {
         return axios.put(`${TODO_URL}/delete/${id}`)
     }
 }
+
+export default new TodoApi();

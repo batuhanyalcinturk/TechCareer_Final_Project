@@ -98,10 +98,6 @@ public class ToDoService {
 
     public List<ToDoItem> getCompletedTodos(boolean completed){
         return toDoItemRepository.findAllByCompleted(completed);
-
-    }
-    public int countAllByCompleted(boolean completed) {
-        return toDoItemRepository.countAllByCompleted(completed);
     }
 
 

@@ -8,8 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ToDoItemRepository extends JpaRepository<ToDoItem, Long> {
-
-    int countAllByCompleted(boolean completed);
-
     List<ToDoItem> findAllByCompleted(boolean completed);
 }

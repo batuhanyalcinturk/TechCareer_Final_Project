@@ -29,10 +29,7 @@ public class ToDoItem implements Serializable {
     private String title;
     private boolean completed = Boolean.FALSE;
 
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    @JsonIgnore
-    User userId;*/
+
 
     @Override
     public String toString() {

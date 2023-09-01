@@ -9,14 +9,10 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 
 // HEADER,FOOTER,MAIN
-import Footer from './component/Footer';
 import Header from './component/Header';
 import Main from './component/Main';
 
 // CATEGORY
-import TodoList from './component/todos/TodoList';
-import TodoCreate from './component/todos/TodoCreate';
-import TodoView from './component/todos/TodoView';
 import TodoUpdate from './component/todos/TodoUpdate';
 
 
@@ -53,16 +49,11 @@ class TodoRouter extends Component {
                         <Route path='/' element={<Main />} />
 
                         {/* Todo */}
-                        <Route path='/todos/list' element={<TodoList/>} />
-                        <Route path='/todos/create' element={<TodoCreate/>} />
-                        <Route path='/todos/view/:id' element={<TodoView/>} />
                         <Route path='/todos/update/:id' element={<TodoUpdate/>} />
                         {/* bad request */}
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                 </div>
-
-                <Footer copy="&copy; 2021 - 2023" />
             </React.Fragment>
         ) //end return
     } //end render
