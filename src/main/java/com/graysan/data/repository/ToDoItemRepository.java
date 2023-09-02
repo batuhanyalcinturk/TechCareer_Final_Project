@@ -8,5 +8,9 @@ import java.util.List;
 
 @Repository
 public interface ToDoItemRepository extends JpaRepository<ToDoItem, Long> {
+    /**
+     * Tamamlanmış veya tamamlanmamış ToDo öğelerini bulur.
+     * Finds ToDo items based on their completion status.
+     */
     List<ToDoItem> findAllByCompleted(boolean completed);
 }

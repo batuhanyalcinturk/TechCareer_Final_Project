@@ -18,20 +18,26 @@ public class ToDoService {
     private final ToDoItemRepository toDoItemRepository;
     private final ModelMapperBean modelMapperBean;
 
+    // Constructor Injection
     public ToDoService(ToDoItemRepository toDoItemRepository, ModelMapperBean modelMapperBean) {
         this.toDoItemRepository = toDoItemRepository;
         this.modelMapperBean = modelMapperBean;
     }
 
-
+    // ToDoItem nesnesini ToDoItemDto nesnesine dönüştürür.
+    // Converts a ToDoItem object to a ToDoItemDto object.
     private ToDoItemDto convertToDTO(ToDoItem todo) {
         return modelMapperBean.modelMapperMethod().map(todo,ToDoItemDto.class);
     }
 
+    // ToDoItemDto nesnesini ToDoItem nesnesine dönüştürür.
+    // Converts a ToDoItemDto object to a ToDoItem object.
     private ToDoItem convertToEntity(ToDoItemDto todoDTO) {
         return modelMapperBean.modelMapperMethod().map(todoDTO,ToDoItem.class);
     }
 
+    // Tüm Todo öğelerini getirir.
+    // Retrieves all ToDo items.
     public List<ToDoItemDto> getAllTodos() {
         Iterable<ToDoItem> entityIterable=  toDoItemRepository.findAll();
         List<ToDoItemDto> todoDtoList=new ArrayList<>();
@@ -42,6 +48,8 @@ public class ToDoService {
         return todoDtoList;
     }
 
+    // Belirli bir ID'ye sahip Todo öğesini getirir.
+    // Retrieves a ToDo item with a specific ID.
     public ToDoItemDto getTodoById(Long id) {
         ToDoItem findTodoItem =  null;
         if(id!=null){
@@ -53,6 +61,8 @@ public class ToDoService {
         return convertToDTO(findTodoItem);
     }
 
+    // Yeni bir ToDo öğesi oluşturur ve kaydeder.
+    // Creates a new ToDo item and saves it.
     @Transactional
     public ToDoItemDto createTodo(ToDoItemDto todoDTO) {
         if(todoDTO!=null){
@@ -65,6 +75,8 @@ public class ToDoService {
         return todoDTO;
     }
 
+    // Belirli bir ID'ye sahip ToDo öğesini günceller.
+    // Updates a ToDo item with a specific ID.
     @Transactional
     public ToDoItemDto updateTodo(Long id, ToDoItemDto todoDTO) {
         ToDoItemDto todoFindDto= getTodoById(id);
@@ -77,6 +89,8 @@ public class ToDoService {
         return todoDTO;
     }
 
+    // Belirli bir ID'ye sahip ToDo öğesini siler.
+    // Deletes a ToDo item with a specific ID.
     @Transactional
     public ToDoItemDto deleteTodo(Long id) {
         ToDoItemDto todoFindDto= getTodoById(id);
@@ -86,16 +100,16 @@ public class ToDoService {
         return todoFindDto;
     }
 
+    // Tüm ToDo öğelerini siler
+    // Deletes all ToDo items.
     public String toDoServiceAllDelete() {
         toDoItemRepository.deleteAll();
         return "Silinen veri sayısı : " + getAllTodos().size();
     }
 
+    // Tamamlanmış ToDo öğelerini getirir.
+    // Retrieves completed ToDo items.
     public List<ToDoItem> getCompletedTodos(boolean completed){
         return toDoItemRepository.findAllByCompleted(completed);
     }
-
-
-
-
 }

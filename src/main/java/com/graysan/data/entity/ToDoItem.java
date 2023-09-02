@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @Log4j2
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "todo_item")
 public class ToDoItem implements Serializable {
@@ -26,18 +27,11 @@ public class ToDoItem implements Serializable {
     @Column(name = "todo_id", unique = true, nullable = false, insertable = true, updatable = false)
     private Long id;
 
+    // ToDo öğesinin başlığını temsil eden alan.
+    // Field representing the title of the ToDo item.
     private String title;
+
+    // ToDo öğesinin tamamlanma durumunu temsil eden alan.
+    // Field representing the completion status of the ToDo item.
     private boolean completed = Boolean.FALSE;
-
-
-
-    @Override
-    public String toString() {
-        return "ToDoItem{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", completed=" + completed +
-                '}';
-    }
-
 }

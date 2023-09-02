@@ -23,7 +23,6 @@ public class CommandLineRunnerBean {
     private final ToDoService toDoService;
     private final ToDoItemRepository toDoItemRepository;
 
-
     // Title (Save)
     public ToDoItem toDoItemEntitySave(String title) {
         ToDoItem todoEntity = new ToDoItem();

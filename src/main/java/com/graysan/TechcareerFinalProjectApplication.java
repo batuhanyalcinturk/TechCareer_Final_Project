@@ -14,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class TechcareerFinalProjectApplication implements CommandLineRunner {
 
 	private final ToDoItemRepository toDoItemRepository;
-	//private final UserRepository userRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TechcareerFinalProjectApplication.class, args);
@@ -22,7 +21,8 @@ public class TechcareerFinalProjectApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*ToDoItem toDoItem = new ToDoItem();
+		/* H2DB for testing
+		ToDoItem toDoItem = new ToDoItem();
 		toDoItem.setId(1L);
 		toDoItem.setTitle("Baslik");
 		toDoItem.setCompleted(true);
@@ -30,4 +30,3 @@ public class TechcareerFinalProjectApplication implements CommandLineRunner {
 		toDoItemRepository.save(toDoItem);*/
 	}
 }
-
