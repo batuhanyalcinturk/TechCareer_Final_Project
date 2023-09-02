@@ -34,7 +34,6 @@ public class ToDoService {
 
     public List<ToDoItemDto> getAllTodos() {
         Iterable<ToDoItem> entityIterable=  toDoItemRepository.findAll();
-        // Dto To entityb List
         List<ToDoItemDto> todoDtoList=new ArrayList<>();
         for (ToDoItem entity:  entityIterable) {
             ToDoItemDto toDoItemDto=convertToDTO(entity);
@@ -68,25 +67,21 @@ public class ToDoService {
 
     @Transactional
     public ToDoItemDto updateTodo(Long id, ToDoItemDto todoDTO) {
-        // Önce Bul
         ToDoItemDto todoFindDto= getTodoById(id);
         if(todoFindDto!=null){
             ToDoItem todoEntity=convertToEntity(todoFindDto);
             todoEntity.setTitle(todoDTO.getTitle());
             todoEntity.setCompleted(todoDTO.isCompleted());
             toDoItemRepository.save(todoEntity);
-            // Dönüştede ID ve Date Set et
         }
         return todoDTO;
     }
 
     @Transactional
     public ToDoItemDto deleteTodo(Long id) {
-        // Önce Bul
         ToDoItemDto todoFindDto= getTodoById(id);
         if(todoFindDto!=null){
             toDoItemRepository.deleteById(id);
-            // Dönüştede ID ve Date Set et
         }
         return todoFindDto;
     }

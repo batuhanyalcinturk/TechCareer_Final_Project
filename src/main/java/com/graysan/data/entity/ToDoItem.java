@@ -36,9 +36,7 @@ public class ToDoItem implements Serializable {
         return "ToDoItem{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                //", content='" + content + '\'' +
                 ", completed=" + completed +
-                //", user_id=" + userId +
                 '}';
     }
 
