@@ -22,19 +22,11 @@ public class TechcareerFinalProjectApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*User user = new User();
-		user.setId(1L);
-		user.setUserName("batu");
-		user.setPassword("sifre");*/
-
 		/*ToDoItem toDoItem = new ToDoItem();
 		toDoItem.setId(1L);
 		toDoItem.setTitle("Baslik");
 		toDoItem.setCompleted(true);
-		//toDoItem.setUserId(user);
 
-		//user.getTodoItems().add(toDoItem);
-		//userRepository.save(user);
 		toDoItemRepository.save(toDoItem);*/
 	}
 }
