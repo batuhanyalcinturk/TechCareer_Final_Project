@@ -61,7 +61,7 @@ public class CommandLineRunnerBean {
         // todo varsa ekleme yapsın
         if (listTodoList != null) {
             ToDoItem todoEntity = new ToDoItem();
-            todoEntity.setTitle("title data");
+            todoEntity.setTitle("Yapılmış Todo");
             todoEntity.setCompleted(true);
             toDoItemRepository.save(todoEntity);
         } else {
