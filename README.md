@@ -17,6 +17,27 @@ Backend'i Spring Boot, Frontend'i React ile oluşturulmuş bir Todo App (Yapıla
     - IntelliJ IDEA
     - Visual Studio Code
 ---
+
+## Postman API Reference 
+#### Gets a list of all ToDo items.
+> **GET** => *"/v1/api/todos/list"*
+#### Gets a ToDo item by its ID.
+> **GET** => *"/v1/api/todos/list/{id}"*
+#### Gets a list of completed ToDo items.
+> **GET** => *"/v1/api/todos/list/completed"*
+#### Creates a new ToDo item.
+> **POST** => *"/v1/api/todos/create"*
+#### Updates a ToDo item by its ID.
+> **GET** => *"/v1/api/todos/update/{id}"*
+#### Deletes a ToDo item by its ID.
+> **POST** => *"/v1/api/todos/delete/{id}"*
+#### Deletes all ToDo items.
+> **GET** => *"/v1/api/todos/all/delete"*
+#### Deletes all completed ToDo items.
+> **DELETE** => *"/v1/api/todos/completed"*
+
+---
+
 ## Tecnology
 ### BackEnd
     - JavaSE
